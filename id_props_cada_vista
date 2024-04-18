@@ -1,0 +1,32 @@
+AppCompatActivity;
+public class MainActivity extends AppCompatActivity {
+// Definimos los datos de usuario predefinidos
+private static final String USUARIO_CORRECTO = "usuario";
+private static final String CONTRASEÑA_CORRECTA = "contraseña";
+// Declaración de vistas
+private EditText editTextUsername;
+private EditText editTextPassword;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+// Asignamos las vistas a las variables
+editTextUsername = findViewById(R.id.editTextUsername);
+editTextPassword = findViewById(R.id.editTextPassword);
+}
+// Método para manejar el clic en el botón de inicio de sesión
+public void login(View view) {
+// Obtenemos el nombre de usuario y contraseña ingresados por el usuario
+String username = editTextUsername.getText().toString();
+String password = editTextPassword.getText().toString();
+// Verificamos si el nombre de usuario y contraseña son correctos
+if (username.equals(USUARIO_CORRECTO) && password.equals(CONTRASEÑA_CORRECTA)) {
+// Si son correctos, mostramos un mensaje de éxito
+Toast.makeText(this, "Inicio de sesión exitoso", Toast.LENGTH_SHORT).show();
+// Aquí podrías iniciar una nueva actividad o realizar otras acciones según tu aplicación
+} else {
+// Si son incorrectos, mostramos un mensaje de error
+Toast.makeText(this, "Nombre de usuario o contraseña incorrectos", Toast.LENGTH_SHORT).show();
+}
+}
+}
